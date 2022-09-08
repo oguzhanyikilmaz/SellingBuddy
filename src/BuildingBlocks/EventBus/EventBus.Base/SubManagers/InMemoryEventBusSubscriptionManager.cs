@@ -55,13 +55,11 @@ namespace EventBus.Base.SubManagers
 
         public string GetEventKey<T>()
         {
-            throw new NotImplementedException();
+            string eventName = typeof(T).Name;
+            return eventNameGetter(eventName);
         }
 
-        public Type GetEventTypeByName(string eventName)
-        {
-            throw new NotImplementedException();
-        }
+        public Type GetEventTypeByName(string eventName) => _eventTypes.SingleOrDefault(t=>t.Name==eventName);
 
         public IEnumerable<SubscriptionInfo> GetHandlersForEvent<T>() where T : IntegrationEvent
         {
