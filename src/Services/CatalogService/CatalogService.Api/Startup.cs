@@ -1,4 +1,5 @@
 using CatalogService.Api.Extensions;
+using CatalogService.Api.Infrastructure;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -33,6 +34,7 @@ namespace CatalogService.Api
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "CatalogService.Api", Version = "v1" });
             });
+            services.Configure<CatalogSettings>(Configuration.GetSection("CatalogSettings"));
             services.ConfiguraDbContext(Configuration);
         }
 
