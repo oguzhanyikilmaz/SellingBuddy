@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using OrderService.Domain.AggregateModels.BuyerAggregate;
 using System;
 using System.Collections.Generic;
 using System.Linq;
